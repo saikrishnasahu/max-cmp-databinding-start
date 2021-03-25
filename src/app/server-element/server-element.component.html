@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+    <div class="panel-heading" #heading>{{ name }}</div>
+    <div class="panel-body">
+        <!-- here retireiving from element but can be used there directly -->
+        <!-- <p>
+            <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content +' '+ a }}</strong>
+            <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
+        </p> -->
+        <!-- directive that renders the content between our component tag -->
+        <ng-content></ng-content>
+    </div>
+</div>

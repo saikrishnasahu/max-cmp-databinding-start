@@ -1,0 +1,5 @@
+/* as angular considers each somponents as different so the css it added to the component only 
+and to maintain it it adds a attribute of it's own */
+p {
+    color: blue;
+  }

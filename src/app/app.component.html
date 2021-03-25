@@ -1,0 +1,21 @@
+<div class="container">
+  <app-cockpit (serverAdded)="onServerAdded($event)" (bluePrintAdded)="onBluePrintAdded($event)"></app-cockpit>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onFirstElementChange()">Change First Element</button>
+      <button class="btn btn-danger" (click)="onElementDelete()">Delete First Element</button>
+      <!-- either bind to a property by [] or directly pass some value -->
+      <app-server-element *ngFor="let serverElement of serverElements" [element]="serverElement"
+        [name]="serverElement.name">
+        <!-- if placed between our tag then it is lost soadd throughng-content -->
+        <!-- local reference can be accessed through @ViewChild in app.ts as it is in same level but not in server.ts 
+          although it is passed there -->
+        <p #contentParagraph>
+          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
+          <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+        </p>
+      </app-server-element>
+    </div>
+  </div>
+</div>
